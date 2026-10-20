@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Киберқауіпсіздік — ашық сабақ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Pacifico&family=Lobster&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f8fb;--card:#fff;--tx:#14213d;--mu:#5b6678;--ac:#2563eb;--ok:#15803d;--bad:#b91c1c;--bd:#dde3ec;--hi:#eaf1ff;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1424;--card:#172036;--tx:#e8edf7;--mu:#9aa6bd;--ac:#6ea0ff;--ok:#4ade80;--bad:#f87171;--bd:#2a3654;--hi:#1d2a4a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1424;--card:#172036;--tx:#e8edf7;--mu:#9aa6bd;--ac:#6ea0ff;--ok:#4ade80;--bad:#f87171;--bd:#2a3654;--hi:#1d2a4a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:960px;margin:0 auto;padding:0 16px}
+header.h{padding:44px 0 28px;text-align:center}
+.tag{display:inline-block;background:var(--hi);color:var(--ac);border-radius:99px;padding:4px 14px;font-size:13px;font-weight:600}
+h1{font-size:clamp(28px,6vw,44px);margin:14px 0 8px;line-height:1.15}
+h2{font-size:24px;margin:0 0 6px}
+p.s{color:var(--mu);margin:0 0 16px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--bd)}
+nav .w{display:flex;gap:6px;overflow-x:auto;padding:8px 16px}
+nav a{white-space:nowrap;text-decoration:none;color:var(--tx);padding:6px 12px;border-radius:8px;font-size:14px}
+nav a:hover{background:var(--hi);color:var(--ac)}
+section{padding:36px 0 8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px}
+.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.tl{display:grid;gap:10px}
+.tl div{display:flex;gap:14px;align-items:flex-start}
+.tl b{min-width:78px;color:var(--ac)}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:9px 14px}
+button:hover{border-color:var(--ac)}
+button.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+.opt{display:block;width:100%;text-align:left;margin-top:8px}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,var(--card))}
+.opt.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 15%,var(--card))}
+.fb{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--hi);display:none}
+code,.url{font-family:ui-monospace,Menlo,Consolas,monospace}
+.url{font-size:18px;background:var(--hi);padding:12px;border-radius:10px;text-align:center;word-break:break-all;margin:10px 0}
+input[type=text]{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx)}
+.bar{height:10px;border-radius:9px;background:var(--bd);overflow:hidden;margin:10px 0}
+.bar i{display:block;height:100%;width:0;transition:width .3s,background .3s}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mu{color:var(--mu);font-size:14px}
+.bad{color:var(--bad)}.ok{color:var(--ok)}
+.mail{border-left:4px solid var(--bad);background:var(--bg);padding:12px 14px;border-radius:8px;font-size:15px}
+.mail mark{background:none;color:inherit;border-bottom:2px dotted var(--bad);cursor:pointer}
+mark.f{background:color-mix(in srgb,var(--bad) 25%,transparent)}
+footer{padding:30px 0 40px;text-align:center;color:var(--mu);font-size:14px}
+.big{font-size:34px;font-weight:700;color:var(--ac)}
+#thanks{overflow:hidden}
+.rbrow{display:flex;align-items:flex-end;justify-content:center;gap:10px}
+.rbmid{flex:1;min-width:0}
+.rb{width:clamp(70px,15vw,130px);flex:none;opacity:0;transition:transform 1.3s cubic-bezier(.2,.9,.25,1),opacity .4s}
+#rbL{transform:translateX(-70vw)}#rbR{transform:translateX(70vw)}
+#rbR svg{transform:scaleX(-1)}
+.go .rb{opacity:1}.go #rbL,.go #rbR{transform:none}
+.rb .arm{transform-origin:81px 72px}
+.go .rb .arm{animation:wave .55s ease-in-out 1.2s infinite alternate}
+@keyframes wave{from{transform:rotate(-110deg)}to{transform:rotate(-160deg)}}
+.gb{display:inline-block;max-width:100%;margin:12px 0;padding:10px 22px;line-height:1.3;border:3px solid var(--ac);border-radius:18px;color:var(--ac);font-weight:700;font-size:clamp(20px,4.5vw,34px);opacity:0;transform:scale(.5)}
+.go .gb{opacity:1;transform:scale(1);transition:opacity .4s 1.2s,transform .6s cubic-bezier(.3,1.6,.5,1) 1.2s}
+.th{opacity:0;transform:translateY(24px)}
+.go .th{opacity:1;transform:none;transition:opacity .7s .1s,transform .7s .1s}
+.nt .rb,.nt .gb,.nt .th{transition:none!important}
+@media (max-width:600px){.rbrow{flex-wrap:wrap;justify-content:space-between}.rbmid{order:-1;flex:0 0 100%}.rb{width:86px;margin-top:8px}}
+@media (prefers-reduced-motion:reduce){.rb,.go .gb{transition:none}.go .rb .arm{animation:none}}
+.hand{font-family:"Marck Script","Pacifico","Lobster","Segoe Script","Brush Script MT",cursive;font-size:clamp(52px,12vw,104px);line-height:1;color:#f4511e;transform:rotate(-3deg);margin:14px 0 2px;text-shadow:2px 3px 0 rgba(244,81,30,.18)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hand{color:#ff8a65}}
+</style>
+</head>
+<body>
+<header class="h"><div class="w">
+<span class="tag">АКТ · 1 курс · Шетел филологиясы</span>
+<div class="hand">Ашық сабақ</div>
+<h1>🛡️ Киберқауіпсіздік: алаяқтан бір қадам алда бол</h1>
+<p class="s">2026 жылғы нақты кейстер, интерактивті тапсырмалар және «хакерлер vs қорғаушылар» ойыны</p>
+<div class="card" style="display:inline-block;max-width:100%;margin-top:6px"><b>📱 Телефоннан кіру: QR-кодты сканерлеңіз</b><div id="qr" style="background:#fff;padding:10px;border-radius:10px;display:inline-block;margin:10px 0 4px;min-height:40px"></div><div class="mu" style="word-break:break-all">bakhytqan.github.io/forstudy/</div><div class="row" style="justify-content:center"><button onclick="qrSave()">QR-ды PNG етіп сақтау</button></div></div>
+</div></header>
+<nav><div class="w">
+<a href="#plan">Жоспар</a><a href="#cases">Кейстер</a><a href="#url">Сілтеме тексер</a><a href="#mail">Хат талдау</a><a href="#pwd">Құпия сөз</a><a href="#tfa">2FA нұсқаулық</a><a href="#game">Рөлдік ойын</a><a href="#score">Ұпай таблосы</a><a href="#myth">Аңыз/Ақиқат</a><a href="#quiz">Квиз</a><a href="#rules">5 ереже</a>
+</div></nav>
+<main class="w">
+
+<section id="plan"><h2>📋 Сабақ жоспары (45 мин)</h2><p class="s">Мұғалімге арналған құрылым</p>
+<div class="card tl">
+<div><b>0–5 мин</b><span><b style="min-width:0;color:inherit">Провокация:</b> «Бірдей құпия сөзді 3-тен көп сайтта қолданатындар қолдарын көтерсін». Қолдар санын санап, сабақ соңында қайта салыстыру.</span></div>
+<div><b>5–15 мин</b><span>Кейстер (төмендегі 6 карточка): әр топқа бір кейс, 2 минутта «Алаяқ не істеді? Қайда қателесті?» деген сұраққа жауап.</span></div>
+<div><b>15–30 мин</b><span>Интерактив: сілтеме тексер → хат талдау → құпия сөз калькуляторы.</span></div>
+<div><b>30–38 мин</b><span>«Хакерлер vs Қорғаушылар»: 1-топ ағылшынша фишинг хат жазады, 2-топ қауіп белгілерін табады.</span></div>
+<div><b>38–45 мин</b><span>Квиз, «5 алтын ереже», рефлексия: қазір қай аккаунтқа 2FA қосасың?</span></div>
+</div></section>
+
+<section id="cases"><h2>📰 Соңғы кейстер</h2><p class="s">Карточканы басып, талқылау сұрағын көріңіз</p>
+<div class="g" id="caseGrid"></div></section>
+
+<section id="url"><h2>🔗 Бұл сілтеме қауіпсіз бе?</h2><p class="s">Домендегі микро-айырмашылықты тап</p>
+<div class="card"><div class="mu">Сұрақ <span id="uN">1</span>/6 · Ұпай: <span id="uS">0</span></div>
+<div class="url" id="uU"></div>
+<div class="row"><button class="p" onclick="uAns(true)">✅ Қауіпсіз</button><button class="p" onclick="uAns(false)">🚫 Фишинг</button></div>
+<div class="fb" id="uF"></div></div></section>
+
+<section id="mail"><h2>✉️ Хатты талда: қызыл жалауларды тап</h2><p class="s">Шетел филологтарына арнайы: фишинг хаттарында грамматика мен стиль қателері жиі кездеседі. Күмәнді сөздерді бас.</p>
+<div class="card"><div class="mail" id="mailBox"></div>
+<div class="mu" style="margin:12px 0 4px;padding:12px 14px;border:1px dashed var(--bd);border-radius:10px"><b>🇰🇿 Қазақша аудармасы:</b><br><b>Кімнен:</b> kaspi-support@mail-secure.xyz<br><b>Тақырыбы:</b> ШҰғЫЛ!!! Тіркелгіңіз бұғатталады<br><br>Құрметті клиент (түпнұсқада Customer сөзі қате жазылған), картаңызда күдікті әрекет анықталды. Деректеріңізді 30 минут ішінде растауыңыз керек, әйтпесе тіркелгі жабылады. Мына сілтемеге өтіңіз: http://kaspi-verify.xyz/login және бізге SMS-кодты жіберіңіз.</div>
+<div class="row"><span class="mu">Табылды: <b id="mC">0</b>/5</span><button onclick="mReset()">Қайта бастау</button></div>
+<div class="fb" id="mF"></div></div></section>
+
+<section id="pwd"><h2>🔑 Құпия сөз калькуляторы</h2><p class="s">Енгізгеніңіз құрылғыдан шықпайды (тек осы бетте есептеледі). Нақты құпия сөзіңізді жазбаңыз!</p>
+<div class="card"><input type="text" id="pw" placeholder="Мысалы: Almaty2026" autocomplete="off" oninput="pCheck()">
+<div class="bar"><i id="pB"></i></div>
+<div>Бұзылу уақыты (секундына 10 млрд болжау): <b id="pT">—</b></div>
+<div class="mu" id="pH">Кемінде 14 таңба, сөз тіркесі (passphrase) қолданыңыз.</div>
+<div class="row"><button onclick="pSet('123456')">123456</button><button onclick="pSet('Almaty2026')">Almaty2026</button><button onclick="pSet('Men-Shetel-Filologiyasynda-Oqimyn!')">Ұзын тіркес</button></div></div></section>
+
+<section id="tfa"><h2>📱 2FA қосу: қадамдық нұсқаулық</h2><p class="s">Платформаны таңдаңыз. Мәзір атаулары қолданба нұсқасына қарай өзгеруі мүмкін, сабақ алдында телефоннан тексеріп алыңыз.</p>
+<div class="card"><div class="row" style="margin:0 0 12px" id="tfaTabs"></div><div id="tfaBody"></div>
+<div class="fb" style="display:block;margin-top:14px"><b>Неге бұл маңызды?</b> Қазақстанда 2026 жылы банктер үшін қашықтан сәйкестендіру мен биометрия талаптары күшейтілген, ал жаңа телефоннан кіргенде қайта сәйкестендіру сұралады. Бірақ Telegram, Instagram, Gmail секілді аккаунттардың 2FA-сын банк сіз үшін қоспайды, оны өзіңіз қосасыз.</div></div></section>
+
+<section id="game"><h2>🎭 «Хакерлер vs Қорғаушылар»: рөлдік карточкалар</h2><p class="s">Топқа бөліну: 1-топ алаяқтар, 2-топ қорғаушылар, 3-топ (немесе оқытушы) қазылар. Тек оқу ойыны: нақты сілтеме жасамаңыз, тек <code>.example</code> доменін қолданыңыз.</p>
+<div class="g">
+<div class="card"><div style="font-size:28px">🎭</div><b>1-топ: Алаяқтар</b><p class="mu">Уақыт: 7 минут</p><ul><li>Төмендегі кездейсоқ сценарийді алыңыз.</li><li>Ағылшын тілінде 3–4 сөйлемдік хат/хабарлама жазыңыз.</li><li>Кемінде 1 психологиялық тетік қолданыңыз.</li><li>Жалған сілтеме: тек <code>...example</code>.</li></ul></div>
+<div class="card"><div style="font-size:28px">🛡️</div><b>2-топ: Қорғаушылар</b><p class="mu">Уақыт: 5 минут</p><ul><li>Хатты оқып, қауіп белгілерін тізімдеңіз.</li><li>Төмендегі чек-парақты қолданыңыз.</li><li>Алаяқтың тетігін атаңыз (қорқыту, асықтыру, сыйлық, сенім).</li><li>Жәбірленушіге нақты кеңес айтыңыз.</li></ul></div>
+<div class="card"><div style="font-size:28px">⚖️</div><b>3-топ: Қазылар</b><p class="mu">Бағалау, 0–3 балл</p><ul><li>Алаяқтар: сенімділік және тіл сапасы (0–3).</li><li>Қорғаушылар: табылған белгілер саны (0–3).</li><li>Қорғаушылардың кеңесі нақты ма (0–3)?</li><li>Жеңімпаз: жалпы балл бойынша.</li></ul></div>
+</div>
+<div class="card" style="margin-top:12px"><b>🎲 Алаяқтарға арналған сценарий карточкасы</b>
+<div class="row"><button class="p" onclick="gDraw()">Кездейсоқ сценарий алу</button></div>
+<div id="gSc" class="mail" style="margin-top:12px;border-color:var(--ac)">Батырманы басыңыз.</div></div>
+<div class="card" style="margin-top:12px"><b>🛡️ Қорғаушыларға арналған чек-парақ</b> <span class="mu">(тапқан белгілерді белгілеңіз)</span><div id="gCh"></div><div class="row"><b>Табылды: <span id="gN">0</span>/8</b><button onclick="gResetCh()">Тазалау</button></div><div class="fb" id="gFb"></div></div></section>
+
+<section id="score"><h2>🏅 Топтардың ұпай таблосы</h2><p class="s">Оқытушыға арналған: топ атауын өзгертіп, ұпай қосыңыз. Проекторда көрсетуге ыңғайлы.</p>
+<div class="card"><div class="g" id="scGrid"></div>
+<div class="row"><button class="p" onclick="scAdd()">+ Топ қосу</button><button onclick="scDel()">− Соңғы топты өшіру</button><button onclick="scZero()">Ұпайды нөлдеу</button></div>
+<div id="scRank" style="margin-top:14px"></div></div></section>
+
+<section id="myth"><h2>🔍 Аңыз ба, Ақиқат па?</h2><p class="s">Карточканы басыңыз</p>
+<div class="g" id="mythGrid"></div></section>
+
+<section id="quiz"><h2>🏆 Қорытынды квиз</h2>
+<div class="card" id="qBox"></div></section>
+
+<section id="rules"><h2>✅ Цифрлық гигиенаның 5 алтын ережесі</h2>
+<div class="g">
+<div class="card"><div class="big">1</div>SMS-кодты, CVV мен PIN-ді <b>ешкімге</b> айтпа. Банк қызметкері де сұрамайды.</div>
+<div class="card"><div class="big">2</div>Сілтемеге өтпес бұрын доменді әріпмен тексер. Күмән болса — қолмен өзің жаз.</div>
+<div class="card"><div class="big">3</div>Әр сайтқа бөлек, ұзын құпия сөз + менеджер. Негізгі аккаунтқа 2FA (Authenticator).</div>
+<div class="card"><div class="big">4</div>Асықтырса, қорқытса, сыйлық уәде етсе — <b>тоқта</b>. Дыбыс/видео қоңыраудан кейін туыстың өзіне қайта қоңырау шал.</div>
+<div class="card"><div class="big">5</div>Қолданбаларды жаңартып тұр, ашық Wi-Fi-да төлем жасама, геолокация мен құжат суретін жарияла<b>ма</b>.</div>
+</div>
+<div class="card" style="margin-top:12px"><b>Пайдалы ресурстар:</b> <a href="https://phishingquiz.withgoogle.com" target="_blank" rel="noopener">Google Phishing Quiz</a> · <a href="https://haveibeenpwned.com" target="_blank" rel="noopener">Have I Been Pwned</a> · KZ-CERT (Telegram-чат «Информационная безопасность РК») · Күмән болса банктің ресми қолданбасындағы қолдау чаты.</div>
+</section>
+<section id="thanks" style="text-align:center;padding:60px 0 24px"><div class="rbrow"><div class="rb" id="rbL" style="--c:var(--ac)"></div><div class="rbmid"><h2 id="thTx" class="th" style="font-size:clamp(30px,8vw,60px);line-height:1.15;margin:0 0 10px">Назарларыңызға рахмет! 🎆</h2><div class="gb">Цифрлық кеңістікте қауіпсіз болыңыздар!</div><br><button class="p" onclick="fire()">🎆 Салют</button></div><div class="rb" id="rbR" style="--c:#f59e0b"></div></div></section>
+</main>
+<canvas id="fw" style="position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:20"></canvas>
+<footer class="w">Дереккөздер: finance.kz (2026), Kapital.kz, Tengrinews.kz, KZ-CERT хабарламалары, Security Affairs, ioplus.nl. Сабақ алдында деректерді қайта тексеріңіз.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+var cases=[
+{i:"🏦",t:"kaspi-bannk.com: жалған банк сайты",s:"KZ-CERT-ке «Kaspi.kz» көшірмесі жайлы өтініш түскен. Домен «bank» сөзінде қосымша «n» әрпімен тіркелген және «фишинг» деп жіктелген.",q:"Бір ғана артық әріпті неге көпшілік байқамайды? Сіз сілтемені қалай тексересіз?"},
+{i:"🤖",t:"2026: AI мен дипфейк қоңыраулары",s:"finance.kz мақалаларына қарағанда, қазақстандықтарды банк атынан қоңыраулар, WhatsApp/Telegram сілтемелері, QR-кодтар және дипфейк-қоңыраулар арқылы алдайды. Алаяқтар деректі әлеуметтік желі мен жарияланған ағып кетулерден жинайды.",q:"Бұл жерде алаяқ қай психологиялық тетікті қолданады: қорқыту, асықтыру, сенім? Дауысқа сенуге бола ма?"},
+{i:"📞",t:"Odido (Нидерланд), 2026 ақпан",s:"Сарапшылар ShinyHunters тобының шабуылын әлеуметтік инженерия осалдығының кейсі деп сипаттайды. Бұл Нидерландының ең ірі жеке деректер ағып кетуінің бірі деп аталады.",q:"Неге хакер кейде жүйені емес, адамды «бұзады»? Қызметкер қандай қателік жасауы мүмкін?"},
+{i:"📧",t:"Substack: ~700 000 қолданушы деректері",s:"2026 ақпанда Substack ~700 мың қолданушының e-mail мен телефон нөмірлерінің ағып кеткенін растады. Мұндай тізім кейін дәл адресті фишинг үшін қолданылады.",q:"E-mail мен телефон ғана ағып кетсе де неге қауіпті? Бұл деректермен алаяқ не істей алады?"},
+{i:"🎥",t:"25,5 млн $ — бейне қоңырау арқылы",s:"2024 жылы халықаралық компания қызметкері дипфейк-бейнеқоңырауда «басшыларды» көріп, ірі сома аударған. Бұл кейс дипфейк қаупінің классикалық мысалына айналды.",q:"Бейнеде бетті көрген соң да неге тексеру керек? Қандай екінші арна (callback) қолдануға болады?"},
+{i:"🔓",t:"16 миллиард құпия сөз ағып кетті (2025)",s:"Зерттеушілер Apple, Facebook, Google, Telegram сервистерінің тіркелгі деректері бар алып жинақты тапқанын хабарлаған (ioplus.nl шолуы бойынша).",q:"Бір құпия сөзді көп жерде қолдану неге дәл осы кезде қауіпті болады?"}
+];
+var cg=document.getElementById("caseGrid");
+cases.forEach(function(c){var d=document.createElement("div");d.className="card";
+d.innerHTML="<div style='font-size:28px'>"+c.i+"</div><b>"+c.t+"</b><p class='mu'>"+c.s+"</p><button>💬 Талқылау сұрағы</button><div class='fb'>"+c.q+"</div>";
+var b=d.querySelector("button"),f=d.querySelector(".fb");b.onclick=function(){f.style.display=f.style.display==="block"?"none":"block"};cg.appendChild(d)});
+
+var U=[["kaspi.kz",1,"Ресми домен."],["kasp1.kz",0,"«i» орнына «1» қойылған. Классикалық typosquatting."],["kaspi-bannk.com",0,"Қосымша «n» және .kz емес, .com. KZ-CERT дәл осындай доменді фишинг деп жіктеген."],["pay.kaspi.kz",1,"Ресми доменнің субдомені: тамыр домен kaspi.kz."],["halyk-bank.kz.secure-login.ru",0,"Шынайы домен — соңғы бөлік: secure-login.ru. «halyk-bank.kz» тек алдау үшін."],["egov.kz",1,"Мемлекеттік ресми порталдың домені."]];
+var ui=0,us=0,ul=false;
+function uShow(){document.getElementById("uN").textContent=ui+1;document.getElementById("uU").textContent="https://"+U[ui][0];document.getElementById("uF").style.display="none";ul=false}
+function uAns(a){if(ul)return;ul=true;var r=(a===!!U[ui][1]);if(r)us++;document.getElementById("uS").textContent=us;
+var f=document.getElementById("uF");f.style.display="block";f.innerHTML=(r?"<b class='ok'>Дұрыс!</b> ":"<b class='bad'>Қате.</b> ")+U[ui][2]+" <button onclick='uNext()'>Келесі →</button>"}
+function uNext(){ui++;if(ui>=U.length){var f=document.getElementById("uF");f.innerHTML="<b>Нәтиже: "+us+"/"+U.length+".</b> <button onclick='uReset()'>Қайта</button>";return}uShow()}
+function uReset(){ui=0;us=0;document.getElementById("uS").textContent=0;uShow()}
+uShow();
+
+var mailHTML="<b>From:</b> kaspi-support@mail-secure.xyz<br><b>Subject:</b> URGENT!!! Your account will be blocked<br><br>Dear <mark data-k='1'>Custumer</mark>, we detected <mark data-k='2'>suspicious activity</mark> on your card. <mark data-k='3'>You must confirm your data within 30 minutes</mark> or account will be <mark data-k='4'>closed</mark>. Click here: <mark data-k='5'>http://kaspi-verify.xyz/login</mark> and send us the SMS code.";
+var mClue={1:"Орфографиялық қате (Customer емес) және жалпы амандасу.",2:"Қорқыту: «күдікті әрекет».",3:"Асықтыру: 30 минут. Алаяқтың басты құралы.",4:"Салдарымен қорқыту.",5:"Домен ресми емес (.xyz) және SMS-код сұрау. Банк ешқашан сұрамайды!"};
+var mFound={};
+function mReset(){mFound={};document.getElementById("mailBox").innerHTML=mailHTML;document.getElementById("mC").textContent=0;document.getElementById("mF").style.display="none";
+document.querySelectorAll("#mailBox mark").forEach(function(m){m.onclick=function(){var k=m.dataset.k;mFound[k]=1;m.className="f";document.getElementById("mC").textContent=Object.keys(mFound).length;var f=document.getElementById("mF");f.style.display="block";f.innerHTML="<b>Белгі "+k+":</b> "+mClue[k]+(Object.keys(mFound).length===5?" 🎉 Барлығы табылды! Тағы жеткіліксіз: жіберуші домені (<code>mail-secure.xyz</code>) және бас әріптермен қысқа тақырып."+"":"")}})}
+mReset();
+
+function pSet(v){document.getElementById("pw").value=v;pCheck()}
+function pCheck(){var v=document.getElementById("pw").value,T=document.getElementById("pT"),B=document.getElementById("pB"),H=document.getElementById("pH");
+if(!v){T.textContent="—";B.style.width="0";return}
+var common=["123456","password","qwerty","12345678","111111","admin","almaty","astana","123456789","qwerty123"],pool=0;
+if(/[a-z]/.test(v))pool+=26;if(/[A-Z]/.test(v))pool+=26;if(/[0-9]/.test(v))pool+=10;if(/[^a-zA-Z0-9]/.test(v))pool+=33;
+var s=Math.pow(pool,v.length)/1e10/2,isC=common.indexOf(v.toLowerCase())>-1;if(isC)s=0.0001;
+if(/^[A-Za-z]+(19|20)\d\d$/.test(v))s=Math.min(s,3600);
+T.textContent=pF(s);var sc=isC?5:Math.min(100,Math.log10(s+1)*9);
+B.style.width=Math.max(5,sc)+"%";B.style.background=sc<35?"var(--bad)":sc<65?"#d97706":"var(--ok)";
+H.textContent=isC?"Бұл ең көп таралған құпия сөздердің бірі: тізімнен лезде табылады.":/^[A-Za-z]+(19|20)\d\d$/.test(v)?"«Сөз + жыл» үлгісін алаяқтар алдымен тексереді, сондықтан нақты уақыт әлдеқайда аз.":v.length<14?"Қысқа. 14+ таңбалы сөз тіркесін қолданып көріңіз.":"Жақсы! Бірақ әр сайтқа бөлек және 2FA-мен қолданыңыз."}
+function pF(s){if(s<1)return "лезде";if(s<60)return Math.round(s)+" секунд";if(s<3600)return Math.round(s/60)+" минут";if(s<86400)return Math.round(s/3600)+" сағат";if(s<31536000)return Math.round(s/86400)+" күн";var y=s/31536000;return y>1e9?"миллиардтаған жыл":y>1e6?"миллиондаған жыл":Math.round(y)+" жыл"}
+
+var M=[["«Инкогнито режимі мені толық жасырады»","АҢЫЗ. Ол тек құрылғыдағы тарихты сақтамайды. Провайдер, сайт және Wi-Fi иесі әрекетіңізді көре алады."],["«Антивирус болса, ештеңеден қорықпауға болады»","АҢЫЗ. Антивирус сіздің өзіңіз сеніп берген кодты (SMS) немесе құпия сөзді алаяқтан қорғай алмайды."],["«Менің аккаунтымды хакер неге қызықтырсын?»","АҢЫЗ. Шабуылдар көбіне автоматты, жаппай жүреді. Аккаунтыңыз басқаларды алдау үшін де керек."],["«Екі факторлы аутентификация бұзылу қаупін айтарлықтай азайтады»","АҚИҚАТ. Құпия сөз ағып кетсе де, екінші фактор кіруді тоқтатады. SMS-тен гөрі Authenticator қолданбасы сенімді."],["«Видеода таныс адамды көрсем, сенуге болады»","АҢЫЗ. Дипфейк дауыс пен бетті жасай алады. Екінші арна арқылы тексеріңіз."]];
+var mg=document.getElementById("mythGrid");
+M.forEach(function(m){var d=document.createElement("div");d.className="card";d.innerHTML="<b>"+m[0]+"</b><div class='row'><button>Жауап</button></div><div class='fb'>"+m[1]+"</div>";
+d.querySelector("button").onclick=function(){d.querySelector(".fb").style.display="block"};mg.appendChild(d)});
+
+var Q=[["Банктен «қауіпсіздік қызметі» қоңырау шалып, SMS-кодты сұрайды. Не істейсіз?",["Кодты беремін, олар банк қой","Қоңырауды тоқтатып, банктің ресми қолданбасы/нөмірі арқылы тексеремін","Кодтың тек жартысын айтамын"],1,"Банк SMS-кодты ешқашан сұрамайды."],
+["Қайсысы ең мықты құпия сөз?",["Almaty2026","P@ssw0rd","Kok-Zhaylau-Kuz-Zhauyn-47!"],2,"Ұзын сөз тіркесі қысқа «күрделі» сөзден күшті."],
+["OLX-те сатушы «төлемді алу үшін» сілтеме жібереді. Бұл...",["Қалыпты жағдай","Фишингтің жиі кездесетін схемасы","Тек Kaspi-де қауіпті"],1,"Төлем алу үшін карта деректерін енгізу қажет емес."],
+["Кафедегі ашық Wi-Fi-да не істеуге болмайды?",["Жаңалық оқу","Банк қолданбасына кіріп аударым жасау","VPN қосу"],1,"Ашық желіде трафикті ұстап алу қаупі бар."],
+["2FA-ның мақсаты қандай?",["Құпия сөзді ұмытпау","Құпия сөз ағып кетсе де кіруді тоқтату","Интернетті жылдамдату"],1,"Екінші фактор — қосымша қорғаныс қабаты."],
+["Достың дауыс хабарламасы: «Тез ақша аудар!». Алғашқы қадам?",["Бірден аударамын","Оның өзіне басқа арна арқылы қоңырау шалып тексеремін","Сілтемеге өтемін"],1,"Дауыс клонын AI жасай алады. Екінші арна — ең жақсы тексеру."]];
+var qi=0,qs=0;
+function qShow(){var b=document.getElementById("qBox");if(qi>=Q.length){b.innerHTML="<div class='big'>"+qs+"/"+Q.length+"</div><p>"+(qs>=5?"Тамаша! Сіз киберқорғаушысыз 🛡️":"Жақсы бастама! Ережелерді қайталап көріңіз.")+"</p><button class='p' onclick='qReset()'>Қайта өту</button>";return}
+var q=Q[qi];b.innerHTML="<div class='mu'>Сұрақ "+(qi+1)+"/"+Q.length+"</div><b>"+q[0]+"</b>";
+q[1].forEach(function(o,i){var bt=document.createElement("button");bt.className="opt";bt.textContent=o;bt.onclick=function(){qAns(i,bt)};b.appendChild(bt)});
+var f=document.createElement("div");f.className="fb";f.id="qF";b.appendChild(f)}
+function qAns(i,bt){var q=Q[qi],bs=document.querySelectorAll("#qBox .opt");if(bs[0].disabled)return;
+bs.forEach(function(x){x.disabled=true});bs[q[2]].classList.add("ok");if(i===q[2])qs++;else bt.classList.add("no");
+var f=document.getElementById("qF");f.style.display="block";f.innerHTML=q[3]+" <button onclick='qi++;qShow()'>Келесі →</button>"}
+function qReset(){qi=0;qs=0;qShow()}
+qShow();
+
+var TFA={"Банк қолданбасы":["Қолданбаны тек ресми дүкеннен (App Store, Google Play) орнатыңыз және соңғы нұсқаға жаңартыңыз.","Қолданбаның қауіпсіздік/кіру баптауынан биометрияны (Face ID, саусақ ізі) немесе PIN-кодты қосыңыз.","«Құрылғылар»/«Қауіпсіздік журналы» бөлімінде танымайтын телефон бар-жоғын тексеріңіз.","SMS-код пен push-растауды ешкімге айтпаңыз. Қашықтан басқару қолданбаларын (AnyDesk сияқты) орнатуға ешкім көндірмесін.","Күдік болса: қоңырауды тоқтатып, банктің ресми нөмірі немесе қолданбадағы чат арқылы өзіңіз хабарласыңыз, картаны уақытша бұғаттаңыз."],"Telegram":["Telegram → Settings (Баптаулар) → Privacy and Security.","Two-Step Verification → Set Password таңдап, ұзын құпия сөз енгізіңіз.","Қалпына келтіру үшін e-mail қосыңыз (оны да 2FA-мен қорғаңыз).","Active Sessions бөлімінде таныс емес құрылғыларды «Terminate» етіңіз.","Белгісіз адамның «код жіберіп қойдым, айтып жіберші» деген өтінішіне жауап бермеңіз."],"Gmail / Google":["Google Account → Security (Қауіпсіздік).","2-Step Verification → Get started, телефон нөміріңізді растаңыз.","Мүмкіндігінше SMS орнына Authenticator қолданбасын немесе passkey таңдаңыз.","Backup codes жасап, қауіпсіз жерге сақтаңыз.","«Your devices» бөлімінде бөтен кіруді тексеріңіз."],"Instagram":["Профиль → Settings → Accounts Center.","Password and security → Two-factor authentication.","Аккаунтты таңдап, Authentication app әдісін қосыңыз.","Қосымша кодтарды (recovery codes) сақтап қойыңыз.","Login activity бөлімінде таныс емес кірулерден шығыңыз."]};
+var tt=document.getElementById("tfaTabs"),tbody=document.getElementById("tfaBody");
+function tShow(k){tbody.innerHTML="";var ol=document.createElement("ol");TFA[k].forEach(function(s){var li=document.createElement("li");li.textContent=s;li.style.margin="8px 0";ol.appendChild(li)});tbody.appendChild(ol);
+tt.querySelectorAll("button").forEach(function(b){b.className=b.textContent===k?"p":""})}
+Object.keys(TFA).forEach(function(k){var b=document.createElement("button");b.textContent=k;b.onclick=function(){tShow(k)};tt.appendChild(b)});
+tShow("Банк қолданбасы");
+
+var SC=[["Telegram","Жалған курьер: «Сәлемдемеңіз кеденде тұр, төлем керек»","Асықтыру"],["E-mail","Жалған университет: «Стипендияңыз тоқтатылады, деректі растаңыз»","Қорқыту"],["WhatsApp","Таныс адамның «жаңа нөмірі»: «Ақша тез керек, кейін қайтарамын»","Сенім"],["SMS","Лотерея: «Сіз iPhone ұтып алдыңыз»","Сыйлық/ашкөздік"],["Instagram DM","Жалған брендтің «блогер ретінде ынтымақтастық» ұсынысы","Мақтау/мүдде"],["E-mail","Жалған халықаралық стипендия/exchange бағдарламасы: «Өтінімді 24 сағатта растаңыз»","Асықтыру + үміт"]];
+function gDraw(){var s=SC[Math.floor(Math.random()*SC.length)];document.getElementById("gSc").innerHTML="<b>Арна:</b> "+s[0]+"<br><b>Сюжет:</b> "+s[1]+"<br><b>Басты тетік:</b> "+s[2]+"<br><b>Тіл:</b> ағылшынша, 3–4 сөйлем, жалған сілтеме тек <code>secure-check.example</code>"}
+var CH=["Жіберуші адресі/нөмірі ресми емес","Емле немесе грамматикалық қате бар","Жалпы амандасу («Dear user/customer»)","Асықтыру (мерзім, «30 минут»)","Қорқыту немесе сыйлық уәдесі","Күмәнді домен/қысқартылған сілтеме","Код, құпия сөз немесе карта деректерін сұрайды","Ресми арнадан тыс байланысқа шақырады"];
+var gc=document.getElementById("gCh");
+CH.forEach(function(t){var l=document.createElement("label");l.style.cssText="display:block;margin:8px 0;cursor:pointer";var c=document.createElement("input");c.type="checkbox";c.onchange=gCount;l.appendChild(c);l.appendChild(document.createTextNode(" "+t));gc.appendChild(l)});
+function gCount(){var n=gc.querySelectorAll("input:checked").length,f=document.getElementById("gFb");document.getElementById("gN").textContent=n;f.style.display="block";f.textContent=n>=6?"Тамаша! 3 балл.":n>=4?"Жақсы! 2 балл.":n>=2?"1 балл. Тағы белгілерді іздеңіз.":"Мұқият оқыңыз, белгілер көп."}
+function gResetCh(){gc.querySelectorAll("input").forEach(function(c){c.checked=false});gCount();document.getElementById("gFb").style.display="none"}
+var SG=[],SK="cyberScore";
+try{var sv=localStorage.getItem(SK);if(sv)SG=JSON.parse(sv)}catch(e){}
+if(!SG.length)SG=[{n:"1-топ",s:0},{n:"2-топ",s:0},{n:"3-топ",s:0},{n:"4-топ",s:0}];
+function scSave(){try{localStorage.setItem(SK,JSON.stringify(SG))}catch(e){}}
+function scRank(){var r=document.getElementById("scRank"),a=SG.slice().sort(function(x,y){return y.s-x.s}),m=["🥇","🥈","🥉"];r.innerHTML="";
+a.forEach(function(g,i){var d=document.createElement("div");d.style.cssText="padding:6px 0;border-bottom:1px solid var(--bd)";d.textContent=(m[i]||(i+1)+".")+" "+g.n+": "+g.s+" ұпай";r.appendChild(d)})}
+function scDraw(){var gr=document.getElementById("scGrid");gr.innerHTML="";
+SG.forEach(function(g,i){var d=document.createElement("div");d.className="card";d.style.textAlign="center";
+var inp=document.createElement("input");inp.type="text";inp.value=g.n;inp.style.textAlign="center";inp.oninput=function(){g.n=inp.value;scSave();scRank()};
+var big=document.createElement("div");big.className="big";big.textContent=g.s;big.style.margin="8px 0";
+var row=document.createElement("div");row.className="row";row.style.justifyContent="center";
+[["−1",-1],["+1",1],["+2",2],["+3",3]].forEach(function(x){var b=document.createElement("button");b.textContent=x[0];b.onclick=function(){g.s+=x[1];big.textContent=g.s;scSave();scRank()};row.appendChild(b)});
+d.appendChild(inp);d.appendChild(big);d.appendChild(row);gr.appendChild(d)});scRank()}
+function scAdd(){SG.push({n:(SG.length+1)+"-топ",s:0});scSave();scDraw()}
+function scDel(){if(SG.length>1){SG.pop();scSave();scDraw()}}
+function scZero(){SG.forEach(function(g){g.s=0});scSave();scDraw()}
+scDraw();
+
+var QRU="https://bakhytqan.github.io/forstudy/";
+try{new QRCode(document.getElementById("qr"),{text:QRU,width:180,height:180,correctLevel:QRCode.CorrectLevel.M})}catch(e){document.getElementById("qr").textContent=QRU}
+function qrSave(){try{var c=document.querySelector("#qr canvas"),a=document.createElement("a");a.href=c.toDataURL("image/png");a.download="qr-kod.png";document.body.appendChild(a);a.click();a.remove()}catch(e){alert("QR-ды скриншот арқылы сақтаңыз")}}
+var fw=document.getElementById("fw"),fx=fw.getContext("2d"),FP=[],fRun=false,fLoop=false,fDone=false;
+function fwSize(){fw.width=innerWidth;fw.height=innerHeight}
+addEventListener("resize",fwSize);fwSize();
+function burst(x,y){var h=Math.random()*360;for(var i=0;i<80;i++){var a=Math.random()*6.283,v=Math.random()*5+1;FP.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,c:"hsl("+(h+Math.random()*50)+",100%,55%)"})}}
+function fStep(){fx.clearRect(0,0,fw.width,fw.height);
+FP.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=0.05;p.vx*=0.985;p.l-=0.011;fx.globalAlpha=Math.max(p.l,0);fx.fillStyle=p.c;fx.beginPath();fx.arc(p.x,p.y,2.4,0,6.283);fx.fill()});
+FP=FP.filter(function(p){return p.l>0});fx.globalAlpha=1;
+if(FP.length||fRun)requestAnimationFrame(fStep);else{fLoop=false;fx.clearRect(0,0,fw.width,fw.height)}}
+var RB='<svg viewBox="0 0 100 140" width="100%" aria-hidden="true"><line x1="50" y1="6" x2="50" y2="20" stroke="#64748b" stroke-width="3"/><circle cx="50" cy="6" r="5" fill="#f87171"/><rect x="22" y="20" width="56" height="42" rx="12" fill="var(--c)"/><rect x="30" y="29" width="40" height="24" rx="8" fill="#fff"/><circle cx="41" cy="40" r="5" fill="#14213d"/><circle cx="59" cy="40" r="5" fill="#14213d"/><path d="M42 48 Q50 54 58 48" stroke="#14213d" stroke-width="2.5" fill="none" stroke-linecap="round"/><rect x="28" y="66" width="44" height="40" rx="10" fill="var(--c)"/><rect x="40" y="76" width="20" height="14" rx="4" fill="#fff" opacity=".85"/><rect x="34" y="106" width="12" height="24" rx="5" fill="#64748b"/><rect x="54" y="106" width="12" height="24" rx="5" fill="#64748b"/><rect x="30" y="128" width="20" height="8" rx="4" fill="#334155"/><rect x="50" y="128" width="20" height="8" rx="4" fill="#334155"/><rect x="14" y="70" width="10" height="30" rx="5" fill="var(--c)"/><g class="arm"><rect x="76" y="70" width="10" height="30" rx="5" fill="var(--c)"/><circle cx="81" cy="102" r="6" fill="#fff"/></g></svg>';
+document.getElementById("rbL").innerHTML=RB;document.getElementById("rbR").innerHTML=RB;
+function fire(){var th=document.getElementById("thanks");th.classList.remove("go");th.classList.add("nt");void th.offsetWidth;th.classList.remove("nt");th.classList.add("go");
+if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;var n=0;fRun=true;
+var t=setInterval(function(){burst(fw.width*(0.12+Math.random()*0.76),fw.height*(0.12+Math.random()*0.45));if(++n>=12){clearInterval(t);fRun=false}},320);
+if(!fLoop){fLoop=true;requestAnimationFrame(fStep)}}
+
+</script>
+</body>
+</html>
