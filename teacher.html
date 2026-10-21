@@ -85,6 +85,14 @@ footer{padding:30px 0 40px;text-align:center;color:var(--mu);font-size:14px}
 <nav><div class="w">
 <a href="#plan">Жоспар</a><a href="#cases">Кейстер</a><a href="#url">Сілтеме тексер</a><a href="#mail">Хат талдау</a><a href="#pwd">Құпия сөз</a><a href="#tfa">2FA нұсқаулық</a><a href="#game">Рөлдік ойын</a><a href="#score">Ұпай таблосы</a><a href="#myth">Аңыз/Ақиқат</a><a href="#deepfake">Дипфейк</a><a href="#quiz">Квиз</a><a href="#rules">5 ереже</a>
 </div></nav>
+<div id="lesson-timer" style="position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:9999;background:#2C221E;color:#FBFBF5;border-radius:16px;padding:14px 16px;font-family:system-ui,sans-serif;text-align:center;box-shadow:0 6px 16px rgba(0,0,0,.2);min-width:120px">
+  <div style="font-size:12px;opacity:.8">Ашық сабақ</div>
+  <div id="lt-time" style="font-size:32px;font-weight:700;font-variant-numeric:tabular-nums">45:00</div>
+  <div style="display:flex;gap:6px;justify-content:center;margin-top:8px">
+    <button id="lt-start" type="button" style="border:0;border-radius:8px;padding:6px 10px;background:#D4AF37;color:#2C221E;font-weight:700;cursor:pointer">Бастау</button>
+    <button id="lt-reset" type="button" style="border:1px solid #D4AF37;border-radius:8px;padding:6px 10px;background:transparent;color:#FBFBF5;cursor:pointer">Қайта</button>
+  </div>
+</div>
 <main class="w">
 
 <section id="plan"><h2>📋 Сабақ жоспары (45 мин)</h2><p class="s">Мұғалімге арналған құрылым</p>
@@ -295,6 +303,34 @@ if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)ret
 var t=setInterval(function(){burst(fw.width*(0.12+Math.random()*0.76),fw.height*(0.12+Math.random()*0.45));if(++n>=12){clearInterval(t);fRun=false}},320);
 if(!fLoop){fLoop=true;requestAnimationFrame(fStep)}}
 
+
+
+(function () {
+  var TOTAL = 45 * 60, left = TOTAL, endAt = null, tick = null;
+  var box = document.getElementById('lesson-timer'), out = document.getElementById('lt-time'),
+      start = document.getElementById('lt-start'), reset = document.getElementById('lt-reset');
+  function show() {
+    var m = Math.floor(left / 60), s = left % 60;
+    out.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    box.style.background = left === 0 ? '#B5485A' : left <= 5 * 60 ? '#7A5C12' : '#2C221E';
+  }
+  function step() {
+    left = Math.max(0, Math.round((endAt - Date.now()) / 1000));
+    show();
+    if (left === 0) { clearInterval(tick); tick = null; start.textContent = 'Бастау'; }
+  }
+  start.onclick = function () {
+    if (tick) { clearInterval(tick); tick = null; start.textContent = 'Жалғастыру'; return; }
+    if (left === 0) left = TOTAL;
+    endAt = Date.now() + left * 1000;
+    tick = setInterval(step, 250);
+    start.textContent = 'Тоқтату';
+  };
+  reset.onclick = function () { clearInterval(tick); tick = null; left = TOTAL; start.textContent = 'Бастау'; show(); };
+  show();
+})();
 </script>
+
+
 </body>
 </html>
