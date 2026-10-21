@@ -83,7 +83,7 @@ footer{padding:30px 0 40px;text-align:center;color:var(--mu);font-size:14px}
 <div class="card" style="display:inline-block;max-width:100%;margin-top:6px"><b>📱 Телефоннан кіру: QR-кодты сканерлеңіз</b><div id="qr" style="background:#fff;padding:10px;border-radius:10px;display:inline-block;margin:10px 0 4px;min-height:40px"></div><div class="mu" style="word-break:break-all">bakhytqan.github.io/forstudy/</div><div class="row" style="justify-content:center"><button onclick="qrSave()">QR-ды PNG етіп сақтау</button></div></div>
 </div></header>
 <nav><div class="w">
-<a href="#cases">Кейстер</a><a href="#url">Сілтеме тексер</a><a href="#mail">Хат талдау</a><a href="#pwd">Құпия сөз</a><a href="#tfa">2FA нұсқаулық</a><a href="#game">Рөлдік ойын</a><a href="#myth">Аңыз/Ақиқат</a><a href="#deepfake">Дипфейк</a><a href="#quiz">Квиз</a><a href="#rules">5 ереже</a>
+<a href="#cases">Кейстер</a><a href="#url">Сілтеме тексер</a><a href="#mail">Хат талдау</a><a href="#pwd">Құпия сөз</a><a href="#tfa">2FA нұсқаулық</a><a href="#game">Рөлдік ойын</a><a href="#myth">Аңыз/Ақиқат</a><a href="#deepfake">Дипфейк</a><a href="#rules">5 ереже</a>
 </div></nav>
 <main class="w">
 
@@ -130,9 +130,6 @@ footer{padding:30px 0 40px;text-align:center;color:var(--mu);font-size:14px}
 <section id="deepfake"><h2>🎭 Дипфейк: көргенге сенуге бола ма?</h2><p class="s">AI жасаған жалған бейне мен дауыс. 5 нақты оқиға.</p>
 <div class="g" id="dfGrid" style="grid-template-columns:repeat(auto-fit,minmax(290px,1fr))"></div>
 <p class="mu">Суреттер – түсіндіруге арналған иллюстрация, нақты оқиға кадрлары емес.</p></section>
-
-<section id="quiz"><h2>🏆 Қорытынды квиз</h2>
-<div class="card" id="qBox"></div></section>
 
 <section id="rules"><h2>✅ Цифрлық гигиенаның 5 алтын ережесі</h2>
 <div class="g">
@@ -197,22 +194,6 @@ var mg=document.getElementById("mythGrid");
 M.forEach(function(m){var d=document.createElement("div");d.className="card";d.innerHTML="<b>"+m[0]+"</b><div class='row'><button>Жауап</button></div><div class='fb'>"+m[1]+"</div>";
 d.querySelector("button").onclick=function(){d.querySelector(".fb").style.display="block"};mg.appendChild(d)});
 
-var Q=[["Банктен «қауіпсіздік қызметі» қоңырау шалып, SMS-кодты сұрайды. Не істейсіз?",["Кодты беремін, олар банк қой","Қоңырауды тоқтатып, банктің ресми қолданбасы/нөмірі арқылы тексеремін","Кодтың тек жартысын айтамын"],1,"Банк SMS-кодты ешқашан сұрамайды."],
-["Қайсысы ең мықты құпия сөз?",["Almaty2026","P@ssw0rd","Kok-Zhaylau-Kuz-Zhauyn-47!"],2,"Ұзын сөз тіркесі қысқа «күрделі» сөзден күшті."],
-["OLX-те сатушы «төлемді алу үшін» сілтеме жібереді. Бұл...",["Қалыпты жағдай","Фишингтің жиі кездесетін схемасы","Тек Kaspi-де қауіпті"],1,"Төлем алу үшін карта деректерін енгізу қажет емес."],
-["Кафедегі ашық Wi-Fi-да не істеуге болмайды?",["Жаңалық оқу","Банк қолданбасына кіріп аударым жасау","VPN қосу"],1,"Ашық желіде трафикті ұстап алу қаупі бар."],
-["2FA-ның мақсаты қандай?",["Құпия сөзді ұмытпау","Құпия сөз ағып кетсе де кіруді тоқтату","Интернетті жылдамдату"],1,"Екінші фактор — қосымша қорғаныс қабаты."],
-["Достың дауыс хабарламасы: «Тез ақша аудар!». Алғашқы қадам?",["Бірден аударамын","Оның өзіне басқа арна арқылы қоңырау шалып тексеремін","Сілтемеге өтемін"],1,"Дауыс клонын AI жасай алады. Екінші арна — ең жақсы тексеру."]];
-var qi=0,qs=0;
-function qShow(){var b=document.getElementById("qBox");if(qi>=Q.length){b.innerHTML="<div class='big'>"+qs+"/"+Q.length+"</div><p>"+(qs>=5?"Тамаша! Сіз киберқорғаушысыз 🛡️":"Жақсы бастама! Ережелерді қайталап көріңіз.")+"</p><button class='p' onclick='qReset()'>Қайта өту</button>";return}
-var q=Q[qi];b.innerHTML="<div class='mu'>Сұрақ "+(qi+1)+"/"+Q.length+"</div><b>"+q[0]+"</b>";
-q[1].forEach(function(o,i){var bt=document.createElement("button");bt.className="opt";bt.textContent=o;bt.onclick=function(){qAns(i,bt)};b.appendChild(bt)});
-var f=document.createElement("div");f.className="fb";f.id="qF";b.appendChild(f)}
-function qAns(i,bt){var q=Q[qi],bs=document.querySelectorAll("#qBox .opt");if(bs[0].disabled)return;
-bs.forEach(function(x){x.disabled=true});bs[q[2]].classList.add("ok");if(i===q[2])qs++;else bt.classList.add("no");
-var f=document.getElementById("qF");f.style.display="block";f.innerHTML=q[3]+" <button onclick='qi++;qShow()'>Келесі →</button>"}
-function qReset(){qi=0;qs=0;qShow()}
-qShow();
 
 var TFA={"Банк қолданбасы":["Қолданбаны тек ресми дүкеннен (App Store, Google Play) орнатыңыз және соңғы нұсқаға жаңартыңыз.","Қолданбаның қауіпсіздік/кіру баптауынан биометрияны (Face ID, саусақ ізі) немесе PIN-кодты қосыңыз.","«Құрылғылар»/«Қауіпсіздік журналы» бөлімінде танымайтын телефон бар-жоғын тексеріңіз.","SMS-код пен push-растауды ешкімге айтпаңыз. Қашықтан басқару қолданбаларын (AnyDesk сияқты) орнатуға ешкім көндірмесін.","Күдік болса: қоңырауды тоқтатып, банктің ресми нөмірі немесе қолданбадағы чат арқылы өзіңіз хабарласыңыз, картаны уақытша бұғаттаңыз."],"Telegram":["Telegram → Settings (Баптаулар) → Privacy and Security.","Two-Step Verification → Set Password таңдап, ұзын құпия сөз енгізіңіз.","Қалпына келтіру үшін e-mail қосыңыз (оны да 2FA-мен қорғаңыз).","Active Sessions бөлімінде таныс емес құрылғыларды «Terminate» етіңіз.","Белгісіз адамның «код жіберіп қойдым, айтып жіберші» деген өтінішіне жауап бермеңіз."],"Gmail / Google":["Google Account → Security (Қауіпсіздік).","2-Step Verification → Get started, телефон нөміріңізді растаңыз.","Мүмкіндігінше SMS орнына Authenticator қолданбасын немесе passkey таңдаңыз.","Backup codes жасап, қауіпсіз жерге сақтаңыз.","«Your devices» бөлімінде бөтен кіруді тексеріңіз."],"Instagram":["Профиль → Settings → Accounts Center.","Password and security → Two-factor authentication.","Аккаунтты таңдап, Authentication app әдісін қосыңыз.","Қосымша кодтарды (recovery codes) сақтап қойыңыз.","Login activity бөлімінде таныс емес кірулерден шығыңыз."]};
 var tt=document.getElementById("tfaTabs"),tbody=document.getElementById("tfaBody");
