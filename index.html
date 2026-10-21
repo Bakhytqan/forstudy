@@ -68,6 +68,10 @@ footer{padding:30px 0 40px;text-align:center;color:var(--mu);font-size:14px}
 @media (prefers-reduced-motion:reduce){.rb,.go .gb{transition:none}.go .rb .arm{animation:none}}
 .hand{font-family:"Marck Script","Pacifico","Lobster","Segoe Script","Brush Script MT",cursive;font-size:clamp(52px,12vw,104px);line-height:1;color:#f4511e;transform:rotate(-3deg);margin:14px 0 2px;text-shadow:2px 3px 0 rgba(244,81,30,.18)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hand{color:#ff8a65}}
+.dfc h3{margin:0 0 2px;font-size:17px}
+.dfc .ill{width:100%;height:auto;display:block;border-radius:10px;margin-bottom:10px}
+.dfc .ill text{fill:var(--tx);font-size:12px;font-family:inherit}
+.dfc b.k{display:block;margin-top:9px;font-size:13px;color:var(--ac)}
 </style>
 </head>
 <body>
@@ -79,7 +83,7 @@ footer{padding:30px 0 40px;text-align:center;color:var(--mu);font-size:14px}
 <div class="card" style="display:inline-block;max-width:100%;margin-top:6px"><b>📱 Телефоннан кіру: QR-кодты сканерлеңіз</b><div id="qr" style="background:#fff;padding:10px;border-radius:10px;display:inline-block;margin:10px 0 4px;min-height:40px"></div><div class="mu" style="word-break:break-all">bakhytqan.github.io/forstudy/</div><div class="row" style="justify-content:center"><button onclick="qrSave()">QR-ды PNG етіп сақтау</button></div></div>
 </div></header>
 <nav><div class="w">
-<a href="#cases">Кейстер</a><a href="#url">Сілтеме тексер</a><a href="#mail">Хат талдау</a><a href="#pwd">Құпия сөз</a><a href="#tfa">2FA нұсқаулық</a><a href="#game">Рөлдік ойын</a><a href="#score">Ұпай таблосы</a><a href="#myth">Аңыз/Ақиқат</a><a href="#quiz">Квиз</a><a href="#rules">5 ереже</a>
+<a href="#cases">Кейстер</a><a href="#url">Сілтеме тексер</a><a href="#mail">Хат талдау</a><a href="#pwd">Құпия сөз</a><a href="#tfa">2FA нұсқаулық</a><a href="#game">Рөлдік ойын</a><a href="#myth">Аңыз/Ақиқат</a><a href="#deepfake">Дипфейк</a><a href="#quiz">Квиз</a><a href="#rules">5 ереже</a>
 </div></nav>
 <main class="w">
 
@@ -122,6 +126,10 @@ footer{padding:30px 0 40px;text-align:center;color:var(--mu);font-size:14px}
 
 <section id="myth"><h2>🔍 Аңыз ба, Ақиқат па?</h2><p class="s">Карточканы басыңыз</p>
 <div class="g" id="mythGrid"></div></section>
+
+<section id="deepfake"><h2>🎭 Дипфейк: көргенге сенуге бола ма?</h2><p class="s">AI жасаған жалған бейне мен дауыс. 5 нақты оқиға.</p>
+<div class="g" id="dfGrid" style="grid-template-columns:repeat(auto-fit,minmax(290px,1fr))"></div>
+<p class="mu">Суреттер – түсіндіруге арналған иллюстрация, нақты оқиға кадрлары емес.</p></section>
 
 <section id="quiz"><h2>🏆 Қорытынды квиз</h2>
 <div class="card" id="qBox"></div></section>
@@ -225,6 +233,23 @@ function gResetCh(){gc.querySelectorAll("input").forEach(function(c){c.checked=f
 var QRU="https://bakhytqan.github.io/forstudy/";
 try{new QRCode(document.getElementById("qr"),{text:QRU,width:180,height:180,correctLevel:QRCode.CorrectLevel.M})}catch(e){document.getElementById("qr").textContent=QRU}
 function qrSave(){try{var c=document.querySelector("#qr canvas"),a=document.createElement("a");a.href=c.toDataURL("image/png");a.download="qr-kod.png";document.body.appendChild(a);a.click();a.remove()}catch(e){alert("QR-ды скриншот арқылы сақтаңыз")}}
+
+function dfTiles(){var o="";[20,110,200].forEach(function(x){o+='<rect x="'+x+'" y="12" width="80" height="54" rx="8" fill="var(--card)" stroke="var(--bd)"/><circle cx="'+(x+40)+'" cy="33" r="11" fill="var(--mu)"/><path d="M'+(x+16)+' 62q24-26 48 0" fill="var(--mu)"/><rect x="'+(x+4)+'" y="16" width="22" height="14" rx="4" fill="var(--bad)"/><text x="'+(x+15)+'" y="26.5" text-anchor="middle" style="fill:#fff;font-size:10px;font-weight:700">AI</text>'});return o}
+var DFS=[
+dfTiles()+'<text x="150" y="90" text-anchor="middle">Бейне-қоңырау: бәрі жалған</text><text x="150" y="124" text-anchor="middle" style="fill:var(--bad);font-size:22px;font-weight:700">≈ 25 млн $</text>',
+'<rect x="28" y="18" width="46" height="92" rx="9" fill="var(--card)" stroke="var(--mu)" stroke-width="3"/><circle cx="51" cy="98" r="4" fill="var(--mu)"/><path d="M88 50q14 15 0 30M100 42q22 23 0 46M112 34q30 31 0 62" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round"/><text x="200" y="50" text-anchor="middle">«Директор» дауысы</text><text x="200" y="68" text-anchor="middle" style="fill:var(--bad);font-weight:700">= AI көшірмесі</text><text x="200" y="108" text-anchor="middle" style="fill:var(--bad);font-size:22px;font-weight:700">243 мың $</text>',
+'<rect x="50" y="12" width="200" height="78" rx="8" fill="var(--card)" stroke="var(--mu)" stroke-width="3"/><circle cx="150" cy="38" r="13" fill="var(--mu)"/><path d="M122 86q28-34 56 0" fill="var(--mu)"/><g transform="rotate(-12 150 52)"><rect x="98" y="38" width="104" height="28" rx="5" fill="var(--card)" stroke="var(--bad)" stroke-width="3"/><text x="150" y="58" text-anchor="middle" style="fill:var(--bad);font-size:18px;font-weight:700">ЖАЛҒАН</text></g><text x="150" y="112" text-anchor="middle">«Қаруды тастаңдар!» бейнесі</text><text x="150" y="130" text-anchor="middle" style="fill:var(--mu)">бірнеше сағатта жоққа шығарылды</text>',
+'<rect x="70" y="10" width="160" height="34" rx="12" fill="var(--card)" stroke="var(--bad)" stroke-width="2"/><text x="150" y="32" text-anchor="middle" style="fill:var(--bad);font-weight:700;font-size:14px">«Дауыс бермеңіз!»</text><rect x="28" y="62" width="40" height="66" rx="8" fill="var(--card)" stroke="var(--mu)" stroke-width="3"/><path d="M84 80q12 13 0 26M96 72q18 21 0 42" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round"/><text x="100" y="124">AI дауысы</text><rect x="214" y="84" width="60" height="42" rx="4" fill="var(--card)" stroke="var(--mu)" stroke-width="3"/><rect x="232" y="84" width="24" height="5" fill="var(--mu)"/><text x="244" y="116" text-anchor="middle" style="fill:var(--bad);font-size:20px;font-weight:700">✗</text>',
+'<rect x="14" y="10" width="176" height="30" rx="12" fill="var(--card)" stroke="var(--bad)" stroke-width="2"/><text x="102" y="30" text-anchor="middle">«Құпия мәміле, шұғыл!»</text><rect x="110" y="50" width="176" height="30" rx="12" fill="var(--card)" stroke="var(--ac)" stroke-width="2"/><text x="198" y="70" text-anchor="middle">«Жеке сұрақ қояйын»</text><text x="150" y="116" text-anchor="middle" style="fill:var(--ok);font-size:16px;font-weight:700">✔ Алаяқ трубканы қойды</text>'];
+var DF=[
+{t:"Гонконг: Arup компаниясы",d:"2024 жылғы ақпан",a:"Қызметкер бейне-қоңыраудағы «директор мен әріптестерді» шын деп ойлады. Олардың бәрі AI жасаған жалған бейнелер еді.",b:"Шамамен 25 млн доллар алаяқтарға аударылды.",c:"Ірі аударымды басқа арнамен растау: таныс нөмірге өзіңіз қоңырау шалу немесе екінші адамның жазбаша келісімін алу."},
+{t:"Ұлыбритания: энергетика компаниясы",d:"2019 жыл",a:"«Неміс бас компаниясының директоры» қоңырау шалып, шұғыл аударым сұрады. Оның дауысы мен акценті AI арқылы көшірілген.",b:"243 мың доллар жоғалды. Дауыс клонының ақша ұрлаған алғашқы белгілі жағдайларының бірі.",c:"Аударымды тек екі адамның растауымен жасау және ресми нөмірге өзіңіз қайта қоңырау шалу."},
+{t:"Украина: «берілу» бейнесі",d:"2022 жыл, соғыс кезі",a:"Әлеуметтік желіде президент әскерді қаруын тастауға шақырған жалған бейне тарады.",b:"Бейне кең тарап үлгерді, бірақ президент өзі бірнеше сағатта жоққа шығарды. Мақсат – әскер рухын түсіру.",c:"Күмәнді бейнені ресми арнадан тексеру және растамай бөліспеу."},
+{t:"АҚШ: жалған робоқоңыраулар",d:"2024 жыл, Нью-Гэмпшир",a:"Сайлаушыларға президенттің дауысымен автоматты қоңырау түсіп, праймеризде дауыс бермеуге шақырды.",b:"Бұл оқиға АҚШ-та AI арқылы сайлауға араласқаны үшін алғашқы қылмыстық айыптауларға әкелді.",c:"Дауыс беру күні мен ережесін тек сайлау комиссиясының ресми сайтынан тексеру."},
+{t:"Италия: Ferrari",d:"2024 жыл, сәтсіз әрекет",a:"Алаяқтар басшының дауысын оның оңтүстік итальян акцентімен жасап, қызметкерге «құпия мәміле» туралы қоңырау шалды.",b:"Шығын болған жоқ: қызметкер дауысты «роботтық» сезіп, күдіктенді.",c:"Дәл осылай: тек нағыз басшы біле алатын жеке сұрақ қойды, алаяқ трубканы қойды."}];
+var dg=document.getElementById("dfGrid");
+DF.forEach(function(c,i){var d=document.createElement("div");d.className="card dfc";
+d.innerHTML='<svg class="ill" viewBox="0 0 300 140" role="img" aria-label="'+c.t+'"><rect width="300" height="140" rx="10" fill="var(--hi)"/>'+DFS[i]+'</svg><h3>'+c.t+'</h3><div class="mu">'+c.d+'</div><b class="k">Не болды</b>'+c.a+'<b class="k">Салдары</b>'+c.b+'<b class="k">Қалай тоқтатуға болар еді</b>'+c.c;dg.appendChild(d)});
 var fw=document.getElementById("fw"),fx=fw.getContext("2d"),FP=[],fRun=false,fLoop=false,fDone=false;
 function fwSize(){fw.width=innerWidth;fw.height=innerHeight}
 addEventListener("resize",fwSize);fwSize();
